@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style lang="">
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        ul.drop {
+            width: 80%;
+            height: 60px;
+            padding: 0;
+            margin: 0 auto;
+            background-color: sandybrown;
+            list-style: none;
+        }
+        
+        li.drop-menu {
+            float: left;
+            width: 50%;
+            text-align: center;
+            height: 60px;
+            line-height: 60px;
+        }
+        
+        li.drop-menu>a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        ul.drop-content {
+            background-color: darkslateblue;
+            padding: 0;
+            width: 100px;
+            display: none;
+            list-style: none;
+            margin: 0 auto;
+        }
+        
+        nav {
+            height: 1000px;
+            background-color: rgba(100, 100, 100, 0.3);
+        }
+        aside{
+            position: fixed;
+            right: 0;
+            top: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul class="drop">
+            <li class="drop-menu">
+                <a href="javascript:;">公司简介</a>
+                <ul class="drop-content">
+                    <li>公司实力</li>
+                    <li>公司规模</li>
+                </ul>
+            </li>
+
+            <li class="drop-menu">
+                <a href="javascript:;">产品介绍</a>
+                <ul class="drop-content">
+                    <li>公司实力</li>
+                    <li>公司规模</li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+    <aside>
+        <button>点击向上</button>
+        <button>点击向下</button>
+    </aside>
+</body>
+
+</html>
+<script src='jquery-3.1.1.js'></script>
+<script>
+    $(".drop-menu").each(function(){
+        $(this).hover(function(){
+            $(this).children("ul").css({
+                display:"block"
+            })
+        })
+          $(this).mouseleave(function(){
+            $(this).children("ul").css({
+                display:"none"
+            })
+        })
+    })
+     $("button").first().click(function(){
+         $("html").animate({
+             scrollTop:0
+         })
+     })
+      $("button").last().click(function(){
+          $("html").animate({
+              scrollTop:$(document).height() - $(window).height()
+          })
+      })
+   
+</script>

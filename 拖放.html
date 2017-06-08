@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style lang="">
+        main{
+            height: 300px;
+            border: 1px solid black;
+        }
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <main></main>
+</body>
+</html>
+<script src='jquery-3.1.1.js'></script>
+<script>
+    $("main").on({
+        dragover:function(event){
+            event.originalEvent.dataTransfer.dropEffect="cope";
+        },
+        drop:function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            var files=event.originalEvent.dataTransfer.files;
+            var file = files[0];
+            var filetype = file.type;
+            if(filetype.startsWith("image")){
+                var imgSrc=URL.createObjectURL(file);
+                $("main").empty();
+                $("main").append(`<img src=${imgSrc}></img>`)
+            }
+        }
+    })
+</script>

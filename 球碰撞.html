@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="wly">
+    <title></title>
+    <style>
+    </style>
+</head>
+
+<body>
+
+</body>
+<html>
+<script src='jquery-3.1.1.js'></script>
+<script>
+    // 1,随机大小，随机位置，随机颜色，随机速度，
+
+    // 1 创建一个球；
+    var qiu = document.createElement("div");
+    document.body.appendChild(qiu);
+    // 设置 qiu 的随机大小，随机位置，随机颜色
+    // 1-1，随机大小 50-100;
+    var size = Math.ceil(Math.random() * 50 + 50);
+    console.log(size);
+    // 1-2,随机位置 
+    var htmlWidth = document.documentElement.scrollWidth;
+    var htmlHeight = document.documentElement.scrollHeight;
+    var x = Math.abs(Math.random() * htmlWidth - size)
+    var y = Math.abs(Math.random() * htmlHeight - size)
+    // 1-3,随机颜色；
+     var q = Math.ceil(Math.random() * 254);
+    console.log(a);
+    var w = Math.ceil(Math.random() * 254);
+    console.log(b);
+    var e = Math.ceil(Math.random() * 254);
+    var color = "rgb(" + q + "," + w + "," + e + ")";
+    qiu.style.backgroundColor=color;
+
+    // var color = ["'blue'", "'black'", "'yellow'", "'black'"]
+    // var keycolor = Math.floor(Math.random() * 4);
+    // console.log("keycolor", keycolor);
+    // var c1 = color[keycolor]
+    // console.log(c1)
+
+    // 设置球的样式,
+    $("div").css({
+        width: size,
+        height: size,
+        // backgroundColor: "red",
+        borderRadius: "50%",
+        position: "absolute",
+        top: y,
+        left: x,
+    })
+
+    // 动起来
+      var a = Math.random() * 3 + 2;
+    var b = Math.random() * 5 + 2;
+    var sudu = Math.ceil(Math.random() * 100);
+    console.log(sudu)
+
+    function dong() {
+        // 让球当前的位置值改变，并赋值给雪花的left，top值
+        
+
+        x += a;
+        y += b;
+
+        qiu.style.left = x + "px"
+        qiu.style.top = y + "px"
+
+        // 判断球是否触碰到边缘   
+        if(x>htmlWidth-size){
+          
+            a=-a
+        }
+        if(y>htmlHeight-size){
+           
+            b=-b
+        }
+        if(x<0){
+            
+            a=-a
+           
+        }
+        if(y<0){
+           
+            b=-b
+           
+        }
+
+    }
+    setInterval(dong,10);
+</script>

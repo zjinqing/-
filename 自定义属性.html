@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="text" data-name="123" data-age="12"></div>
+</body>
+</html>
+<script>
+    var div=document.getElementById("text");
+    // console.log(div.getAttribute("data-name"));
+    // console.log(div.id);
+    console.log(div.dataset);
+    console.log(div.dataset.name)
+
+    div.dataset.index=2;
+    div.dataset.city="hehehe";
+</script>

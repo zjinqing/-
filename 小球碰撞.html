@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script src='jquery-3.1.1.js'></script>
+<script>
+    var size =Math.random()*50+10;
+    //随机颜色
+    // hsl(h 色调  0表示红色 120表示绿色  240蓝色  指的范围0-360)
+    var h= Math.random()*360
+    var color=`hsl(155,100%,50%)`;
+    // console.log(color);
+    // $("<p>ppp</p>").appendTo("body").css({
+
+    // })
+
+// 随机的left 
+var left=Math.random()*($(window).width()-size)
+var atop=Math.random()*($(window).top()-size)
+    $("<div></div>").css({
+        width:"",
+        height:"",
+        backgroundolor:color,
+        borderRadius:"50%",
+    }).appendTo("body").offset({
+        left:"",
+        top:"",
+    })
+
+    // 运动
+    // 求得一个随机速度
+    // 水平方向上的速度 [0.5 3][-0.5 -3]
+    // 竖直方向上的速度 [0.5 3][-0.5 -3]
+    // []
+    var x
+    function move(){
+    // 记录移动前的位置
+    var left=$("div").offset().left;
+    var top=$("div").offset.top;
+    }
+
+    // 判断本次小球是否 撞到边缘 如果撞到边缘 让他下次移动是 改变速度
+    if(left <= 0 || left>=$(window)-size/2){
+        // 到达水平方向上的边缘
+        // 
+    }
+    // 请求动画帧
+    // 如果页面不是在激活状态 动画会停止 
+</script>

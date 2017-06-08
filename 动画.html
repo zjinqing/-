@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <button id="hide">点击隐藏</button>
+    <button id="show">点击显示</button>
+    <main>
+        <span>span001</span>
+        <span>span002</span>
+        <span>span003</span>
+        <span>span004</span>
+        <span>span005</span>
+        <span>span006</span>
+    </main>
+</body>
+</html>
+<script src='jquery-3.1.1.js'></script>
+<script>
+    $("#hide").click(function(){
+        $("main span:last").hide("slow",function(){
+           
+            $(this).prev().hide("slow",arguments.callee)
+            //  console.log(arguments.callee)
+        })
+    })
+    $("#show").click(function(){
+        $("main span").show("slow");
+    })
+</script>
